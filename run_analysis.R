@@ -60,13 +60,13 @@ run_analysis <- function()
 	dim (mergedTidySelectData)
 	library(dplyr)
 	mergedTidySelectData <- rename(mergedTidySelectData, Activity=activity)
-	write.table(mergedTidySelectData, "merged_tidy_select_data.txt")
+	write.table(mergedTidySelectData, "merged_tidy_select_data.txt", row.names = FALSE)
 
 #5.	#Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 	library(data.table)
 	summarizedTidySelectData <- data.table(mergedTidySelectData)
 	summarizedTidySelectData <- summarizedTidySelectData[, lapply(.SD, mean), by=c("SubjectID", "Activity")]
-	write.table(summarizedTidySelectData, "summarized_tidy_select_data.txt")
+	write.table(summarizedTidySelectData, "summarized_tidy_select_data.txt", row.names = FALSE)
 
 
 }
