@@ -1,0 +1,129 @@
+#**CodeBook**
+***
+
+This code book provides information about the source of data, expectations and the steps involved in creating the output.
+
+##**Source**
+***
+The data for the project is sourced from:
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+Some background of the site and the information is provided below:
+
+One of the most exciting areas in all of data science right now is wearable computing - see for example this article . Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained:
+
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+##**Expectations**
+***
+
+Following are the requirements for this assignment:
+
+1.	Merges the training and the test sets to create one data set.
+2.	Extracts only the measurements on the mean and standard deviation for each measurement.
+3.	Uses descriptive activity names to name the activities in the data set
+4.	Appropriately labels the data set with descriptive variable names.
+5.	From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+
+##**Steps**
+***
+
+Following steps were carried out to arrive at the result:
+
+1.	Downloaded the zip file to local working directory.
+2.	Unzipped the file. Data was available in test and train directories.
+3.	Loaded subjects, activities and readings from test and train files into local data frames.
+4.	Merged test and training data into three data frames for each of the data available - subjects, activities and readings - using rbind.
+
+5.	Obtained variable names from "features.txt" 
+6.	Identified only those variables that had "Mean" or "Std" in the names.
+7.	Created a different data frame with only the selected "Mean" "Std" variable columns.
+
+8.	Using "activity_labels.txt", replaced the data frame containing the activities with the descriptive name.
+
+9.	Cleaned up the variable/column names of the readings data frame to the extent possible.
+
+10.	Merged all the details - column-wise using cbind - subject, activity, and readings.
+11.	Created "merged_tidy_select_data.txt"
+
+12.	Using data.table package and lapply, summarized the readings grouped on subject and activity.
+13.	Created "summarized_tidy_select_data.txt"
+
+
+##**Variable Names**
+***
+Following are the variable/column names. There are 10299 rows in
+merged_tidy_select_data.txt, summarized into 35 rows in summarized_tidy_select_data.txt.
+
+1.	SubjectID          - values 1-30 representing the 30 subjects      
+2.	Activity           - 6 activities such as Sitting, standing ec.      
+3.	tBodyAccMeanX           
+4.	tBodyAccMeanY            
+5.	tBodyAccMeanZ            
+6.	tBodyAccStdX            
+7.	tBodyAccStdY             
+8.	tBodyAccStdZ             
+9.	tGravityAccMeanX        
+10.	tGravityAccMeanY         
+11.	tGravityAccMeanZ         
+12.	tGravityAccStdX         
+13.	tGravityAccStdY          
+14.	tGravityAccStdZ          
+15.	tBodyAccJerkMeanX       
+16.	tBodyAccJerkMeanY        
+17.	tBodyAccJerkMeanZ        
+18.	tBodyAccJerkStdX        
+19.	tBodyAccJerkStdY         
+20.	tBodyAccJerkStdZ         
+21.	tBodyGyroMeanX          
+22.	tBodyGyroMeanY           
+23.	tBodyGyroMeanZ           
+24.	tBodyGyroStdX           
+25.	tBodyGyroStdY            
+26.	tBodyGyroStdZ            
+27.	tBodyGyroJerkMeanX      
+28.	tBodyGyroJerkMeanY       
+29.	tBodyGyroJerkMeanZ       
+30.	tBodyGyroJerkStdX       
+31.	tBodyGyroJerkStdY        
+32.	tBodyGyroJerkStdZ        
+33.	tBodyAccMagMean         
+34.	tBodyAccMagStd           
+35.	tGravityAccMagMean       
+36.	tGravityAccMagStd       
+37.	tBodyAccJerkMagMean      
+38.	tBodyAccJerkMagStd       
+39.	tBodyGyroMagMean        
+40.	tBodyGyroMagStd          
+41.	tBodyGyroJerkMagMean     
+42.	tBodyGyroJerkMagStd     
+43.	fBodyAccMeanX            
+44.	fBodyAccMeanY            
+45.	fBodyAccMeanZ           
+46.	fBodyAccStdX             
+47.	fBodyAccStdY             
+48.	fBodyAccStdZ            
+49.	fBodyAccJerkMeanX        
+50.	fBodyAccJerkMeanY        
+51.	fBodyAccJerkMeanZ       
+52.	fBodyAccJerkStdX         
+53.	fBodyAccJerkStdY         
+54.	fBodyAccJerkStdZ        
+55.	fBodyGyroMeanX           
+56.	fBodyGyroMeanY           
+57.	fBodyGyroMeanZ          
+58.	fBodyGyroStdX            
+59.	fBodyGyroStdY            
+60.	fBodyGyroStdZ           
+61.	fBodyAccMagMean          
+62.	fBodyAccMagStd           
+63.	fBodyBodyAccJerkMagMean 
+64.	fBodyBodyAccJerkMagStd   
+65.	fBodyBodyGyroMagMean     
+66.	fBodyBodyGyroMagStd     
+67.	fBodyBodyGyroJerkMagMean 
+68.	fBodyBodyGyroJerkMagStd 
+
+
+

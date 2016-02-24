@@ -1,0 +1,28 @@
+#**Coursera Getting and Cleaning Data Assignment - Assignment**
+
+##**Submited Files**
+
+* run_analysis.R
+* README.md
+* CodeBook.md
+
+##**Instructions**
+
+
+1.	Checkout the code 
+
+2.	Download the data set, https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.
+
+3.	Unzip the data set into your local directory 
+
+4.	Load RStudio and set your working directory 
+
+5.	Load the R script using source("run_analysis.R")
+
+6.	Run the R script using run_analysis() and after execution output files would be available in working directory
+
+##**Output Files**
+
+* merged_tidy_select_data.txt
+* summarized_tidy_select_data.txt
+
